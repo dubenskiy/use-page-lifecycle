@@ -23,9 +23,9 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dubenskiy/use-page-lifecycle.git"
+  "repository": "git://github.com/dubenskiy/use-page-lifecycle.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "page-lifecycle",
