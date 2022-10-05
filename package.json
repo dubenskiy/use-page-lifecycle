@@ -3,25 +3,16 @@
   "version": "1.0.1",
   "description": "Page Lifecycle hook for react",
   "main": "lib/index.js",
-  "module": "esm/index.js",
   "types": "./lib",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "import": "./esm/index.js",
-      "require": "./lib/index.js"
-    }
-  },
   "sideEffects": false,
   "scripts": {
     "test": "yarn eslint \"src/**.ts\"",
-    "build": "rm -rf ./lib/* ./esm/* && yarn test && yarn build:cjs && yarn build:es",
-    "build:cjs": "tsc",
-    "build:es": "tsc -m esNext --outDir esm",
+    "build": "rm -rf ./lib/* && yarn test && yarn build:tsc",
+    "build:tsc": "tsc",
     "prepublishOnly": "yarn build"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 16.0.0"
   },
   "repository": {
     "type": "git",
@@ -32,7 +23,7 @@
     "react-hook",
     "react"
   ],
-  "author": "a.dubenskiy <yivo89@gmail.com>",
+  "author": "Andrey Dubenskiy <yivo89@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dubenskiy/use-page-lifecycle/issues"
