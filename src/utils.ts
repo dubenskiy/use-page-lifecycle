@@ -5,6 +5,10 @@ import { LifecycleState } from './enums'
  * Возвращает текущее состояние
  */
 export const getCurrentState = () => {
+  if (!isBrowser) {
+    return LifecycleState.UNKNOWN
+  }
+
   if (document.visibilityState === LifecycleState.HIDDEN) {
     return LifecycleState.HIDDEN
   }
