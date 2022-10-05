@@ -1,5 +1,4 @@
 import { LifecycleState } from './enums'
-import { toIndexedObject } from './utils'
 
 /** Список событий **/
 export const LIFECYCLE_EVENTS = ['focus', 'blur', 'visibilitychange', 'freeze', 'resume', 'pageshow', 'pagehide']
@@ -26,4 +25,4 @@ export const LEGAL_STATE_TRANSITIONS = [
   // Замороженная (bfcached) страница, на которую был выполнен возврат.
   [LifecycleState.FROZEN, LifecycleState.ACTIVE],
   [LifecycleState.FROZEN, LifecycleState.PASSIVE],
-].map(toIndexedObject)
+]

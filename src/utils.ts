@@ -32,7 +32,9 @@ export const toIndexedObject = (arr: Array<LifecycleState>) =>
  * поскольку некоторые браузеры в определенных случаях не запускают события и, таким образом, пропускают состояния.
  */
 export const getLegalStateTransitionPath = (oldState: LifecycleState, newState: LifecycleState) => {
-  for (const order of LEGAL_STATE_TRANSITIONS) {
+  const stateTransitions = LEGAL_STATE_TRANSITIONS.map(toIndexedObject)
+
+  for (const order of stateTransitions) {
     const oldIndex = order[oldState]
     const newIndex = order[newState]
 
@@ -44,3 +46,8 @@ export const getLegalStateTransitionPath = (oldState: LifecycleState, newState: 
   // в целом сюда попасть мы никогда не должны.
   return []
 }
+
+/**
+ * Проверка среды.
+ */
+export const isBrowser = typeof window !== 'undefined'

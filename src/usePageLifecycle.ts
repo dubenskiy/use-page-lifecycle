@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { LIFECYCLE_EVENTS } from './consts'
 import { LifecycleState } from './enums'
-import { getCurrentState, getLegalStateTransitionPath } from './utils'
+import { getCurrentState, getLegalStateTransitionPath, isBrowser } from './utils'
 
 interface DocumentWithWasDiscarded extends Document {
   wasDiscarded?: boolean
@@ -107,7 +107,7 @@ export const usePageLifecycle = (): [LifecycleState, PageWasDiscarded] => {
   }, [lifecycleEventHandler])
 
   const pageWasDiscarded = useCallback<PageWasDiscarded>(
-    () => (document as DocumentWithWasDiscarded).wasDiscarded || false,
+    () => (isBrowser ? (document as DocumentWithWasDiscarded).wasDiscarded || false : false),
     [],
   )
 
