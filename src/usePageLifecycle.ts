@@ -60,8 +60,7 @@ export const usePageLifecycle = (): [LifecycleState, PageWasDiscarded] => {
           break
         }
 
-        case 'pagehide':
-        case 'unload': {
+        case 'pagehide': {
           if ((event as PageTransitionEvent).persisted) {
             changeState(LifecycleState.FROZEN)
           } else {
